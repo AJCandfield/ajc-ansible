@@ -3,6 +3,22 @@
   hosts: all
   become: yes
   tasks:
+
+    - name: Updates and upgrades system
+      package: 
+        name: "*"
+        state: latest
+
+    - name: Add repository for python
+      apt_repository:
+        repo: ppa:deadsnakes/ppa
+        filename: python3
+
+    - name: Installs dependencies for python
+      package:
+        name: software-properties-common
+        state: latest
+
     - name: Installs latest python version
       package:
         name: python3.10
