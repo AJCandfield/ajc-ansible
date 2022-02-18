@@ -7,5 +7,7 @@ jobs:
     steps:
       - run: sudo apt install ansible
       - uses: actions/checkout@v2
+      - run: pip install pre-commit
+      - run: pre-commit run -a
       - run: ansible-playbook playbooks/ping.yml -vv
       - run: ansible-playbook playbooks/setup-workstation.yml -vv
