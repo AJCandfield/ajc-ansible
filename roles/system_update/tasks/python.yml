@@ -11,19 +11,19 @@
 
 - name: Installs latest python version
   package:
-    name: python3.10
+    name: { { python_version } }
     state: present
 
 - name: Running some check commands...
-  shell: ls /usr/bin/python*
+  shell: ls /usr/bin/{{ python_version }}
   register: python_check
   changed_when: false
 
 - name: Check correct python version
   assert:
-    that: '"python3.10" in python_check.stdout'
-    success_msg: Python3.10 successfully installed.
-    fail_msg: Python3.10 not found in /usr/bin folder.
+    that: "{{ python_version }} in python_check.stdout"
+    success_msg: "{{ python_version }} successfully installed."
+    fail_msg: "{{ python_version }} not found in /usr/bin folder."
 
 - name: Printing Python version...
   debug:

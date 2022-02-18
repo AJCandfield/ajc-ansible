@@ -1,2 +1,3 @@
 ---
 # vars file for roles/system-update
+python_version: "python3.10"
