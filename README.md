@@ -1,3 +1,3 @@
-# Ansible Template
+# Ansible 
 
-Template repository to spawn other Ansible projects.
+Personal Ansible roles and playbooks.

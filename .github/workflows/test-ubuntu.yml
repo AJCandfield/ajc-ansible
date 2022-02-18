@@ -1,0 +1,9 @@
+---
+name: Test Ansible on a Ubuntu 20.04 VM
+on: ["push"]
+jobs:
+  run-playbook:
+    runs-on: ubuntu-20.04
+    steps:
+      - run: apt install ansible
+      - run: ansible-playbook playbooks/ping.yml
