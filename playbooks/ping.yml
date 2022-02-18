@@ -1,0 +1,16 @@
+---
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/ping_module.html
+
+- name: Pings all inventory
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Pinging hosts
+      ping:
+      notify: Success
+
+  handlers:
+    - name: Success
+      debug:
+        msg: "Successfully pinged all hosts!"
