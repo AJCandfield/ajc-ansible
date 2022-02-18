@@ -1,0 +1,8 @@
+---
+- name: Updates cache and upgrades system
+  apt:
+    update_cache: true
+    install_recommends: true
+    upgrade: true
+    autoremove: true
+    autoclean: true

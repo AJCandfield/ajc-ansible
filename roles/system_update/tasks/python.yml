@@ -15,16 +15,15 @@
     state: present
 
 - name: Running some check commands...
-  shell: |
-    ls /usr/bin/python*
-    which python
-    which python3
-    which python3.10
-    python -V
-    python3 -V
-    python3.10 -V
+  shell: ls /usr/bin/python*
   register: python_check
   changed_when: false
+
+- name: Check correct python version
+  assert:
+    that: "'python3.10' in {{ python_check.stdout }}"
+    success_msg: Python3.10 successfully installed.
+    fail_msg: Python3.10 not found in /usr/bin folder.
 
 - name: Printing Python version...
   debug:
