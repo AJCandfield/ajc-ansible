@@ -12,3 +12,7 @@
     - role: setup_zsh
       vars:
         user: alex
+
+    - role: setup_dotfiles
+      vars:
+        user: alex
