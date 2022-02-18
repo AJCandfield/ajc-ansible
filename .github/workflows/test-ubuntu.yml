@@ -14,10 +14,10 @@ jobs:
         run: sudo apt install ansible
 
       - name: Installing linting tools...
-      - run: pip3 install "ansible-lint" "yamllint"
+        run: pip3 install "ansible-lint" "yamllint"
 
       - name: Running pre-commits...
-      - run: pre-commit run -a
+        run: pre-commit run -a
 
   run-playbook:
     runs-on: ubuntu-20.04
