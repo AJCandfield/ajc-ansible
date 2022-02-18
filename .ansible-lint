@@ -39,6 +39,7 @@ skip_list:
   - no-loop-var-prefix
   - skip_this_tag
   - git-latest
+  - yaml
 
 # Any rule that has the 'opt-in' tag will not be loaded unless its 'id' is
 # mentioned in the enable_list:
