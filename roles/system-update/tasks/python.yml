@@ -1,0 +1,31 @@
+---
+- name: Add repository for python
+  apt_repository:
+    repo: ppa:deadsnakes/ppa
+    filename: python3
+
+- name: Installs dependencies for python
+  package:
+    name: software-properties-common
+    state: present
+
+- name: Installs latest python version
+  package:
+    name: python3.10
+    state: present
+
+- name: Running some check commands...
+  shell: |
+    ls /usr/bin/python*
+    which python
+    which python3
+    which python3.10
+    python -V
+    python3 -V
+    python3.10 -V
+  register: python_check
+  changed_when: false
+
+- name: Printing Python version...
+  debug:
+    var: python_check.stdout

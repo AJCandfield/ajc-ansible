@@ -1,0 +1,5 @@
+{
+    "yaml.schemas": {
+        "https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-tasks.json": "file:///home/alex/Documents/Code/Personal/ajc-ansible/roles/system-update/tasks/python.yml"
+    }
+}

@@ -45,3 +45,7 @@ repos:
     rev: v0.23.2
     hooks:
       - id: markdownlint
+        name: Markdownlint
+        description: Run markdownlint on your Markdown files
+        entry: markdownlint
+        files: \.(md|mdown|markdown)$
