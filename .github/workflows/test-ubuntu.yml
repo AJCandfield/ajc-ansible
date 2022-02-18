@@ -6,14 +6,29 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - run: pip install pre-commit
+
+      - name: Installing pre-commit...
+        run: pip install pre-commit
+
+      - name: Installing Ansible...
+        run: sudo apt install ansible
+
+      - name: Installing linting tools...
       - run: pip3 install "ansible-lint" "yamllint"
+
+      - name: Running pre-commits...
       - run: pre-commit run -a
 
   run-playbook:
     runs-on: ubuntu-20.04
     steps:
-      - run: sudo apt install ansible
       - uses: actions/checkout@v2
-      - run: ansible-playbook playbooks/ping.yml -vv
-      - run: ansible-playbook playbooks/setup-workstation.yml -vv
+
+      - name: Installing Ansible...
+        run: sudo apt install ansible
+
+      - name: Running Ansible ping...
+        run: ansible-playbook playbooks/ping.yml -vv
+
+      - name: Running main Ansible playbook...
+        run: ansible-playbook playbooks/setup-workstation.yml -vv
