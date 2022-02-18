@@ -4,14 +4,18 @@
   become: yes
   tasks:
 
-    - name: Updates and upgrades system
-      apt: # noqa 403
-        name: "*"
+    - name: Updates cache and upgrades system
+      apt:
         update_cache: yes
         install_recommends: yes
         upgrade: yes
         autoremove: yes
         autoclean: yes
+
+    - name: Updates and upgrades system
+      apt: # noqa 403
+        package: "*"
+        state: latest
 
     - name: Add repository for python
       apt_repository:
