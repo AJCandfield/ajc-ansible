@@ -31,13 +31,13 @@ repos:
         pass_filenames: false
         always_run: true
 
-  - repo: https://github.com/adrienverge/yamllint.git
-    rev: v1.26.1
-    hooks:
-      - id: yamllint
-        files: \.(yaml|yml|yamllint)$
-        types: [file, yaml]
-        entry: yamllint
+  # - repo: https://github.com/adrienverge/yamllint.git
+  #   rev: v1.26.1
+  #   hooks:
+  #     - id: yamllint
+  #       files: \.(yaml|yml|yamllint)$
+  #       types: [file, yaml]
+  #       entry: yamllint
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
     rev: v0.23.2
