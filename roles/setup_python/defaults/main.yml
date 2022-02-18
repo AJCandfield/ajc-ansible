@@ -4,7 +4,7 @@ python_version: python3.10
 pip_packages:
   - pip
   - ansible
-  - ansiblelint
+  - ansible-lint
   - yamllint
   - boto3
   - virtualenv

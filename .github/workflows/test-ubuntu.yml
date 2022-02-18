@@ -11,7 +11,7 @@ jobs:
         run: python3 -m venv venv
 
       - name: Activating venv
-        run: source venv/bin/activate ; which python
+        run: source venv/bin/activate
 
       - name: Installing pre-commit...
         run: pip install pre-commit
@@ -21,6 +21,9 @@ jobs:
 
       - name: Installing linting tools...
         run: pip install "ansible-lint" "yamllint"
+
+      - name: Print pip info
+        run: pip -V ; pip list ; which python
 
       - name: Running pre-commits...
         run: pre-commit run -a
@@ -34,7 +37,7 @@ jobs:
         run: python3 -m venv venv
 
       - name: Activating venv
-        run: source venv/bin/activate ; which python
+        run: source venv/bin/activate
 
       - name: Installing Ansible...
         run: pip install ansible
