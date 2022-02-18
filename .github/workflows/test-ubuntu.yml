@@ -32,3 +32,6 @@ jobs:
 
       - name: Running main Ansible playbook...
         run: ansible-playbook playbooks/setup-workstation.yml -vv
+
+      - name: Listing packages...
+        run: sudo apt list --installed

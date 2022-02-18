@@ -6,3 +6,14 @@
     upgrade: true
     autoremove: true
     autoclean: true
+
+- name: Installs basic packages
+  apt:
+    package:
+      - git
+      - curl
+      - wget
+      - zip
+      - unzip
+      - gzip
+      - zsh
