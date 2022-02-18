@@ -6,4 +6,5 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - run: sudo apt install ansible
+      - uses: actions/checkout@v2
       - run: ansible-playbook playbooks/ping.yml
