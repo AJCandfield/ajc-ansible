@@ -2,13 +2,18 @@
 name: Test Ansible on a Ubuntu 20.04 VM
 on: ["push"]
 jobs:
+  linting:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - run: pip install pre-commit
+      - run: pip3 install "ansible-lint" "yamllint"
+      - run: pre-commit run -a
+
   run-playbook:
     runs-on: ubuntu-20.04
     steps:
       - run: sudo apt install ansible
       - uses: actions/checkout@v2
-      - run: pip install pre-commit
-      - run: pip3 install "ansible-lint" "yamllint"
-      - run: pre-commit run -a
       - run: ansible-playbook playbooks/ping.yml -vv
       - run: ansible-playbook playbooks/setup-workstation.yml -vv

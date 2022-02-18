@@ -21,7 +21,7 @@
 
 - name: Check correct python version
   assert:
-    that: "'python3.10' in {{ python_check.stdout }}"
+    that: '"python3.10" in python_check.stdout'
     success_msg: Python3.10 successfully installed.
     fail_msg: Python3.10 not found in /usr/bin folder.
 
