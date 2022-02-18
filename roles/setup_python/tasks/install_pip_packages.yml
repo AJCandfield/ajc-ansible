@@ -1,0 +1,5 @@
+---
+- name: Installs pip packages
+  pip:
+    name: "{{ pip_packages }}"
+    state: latest # noqa 403

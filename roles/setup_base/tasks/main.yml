@@ -1,0 +1,6 @@
+---
+# tasks file for roles/system-update
+- name: Importing other tasks...
+  loop:
+    - install_base_packages
+  include_tasks: "{{ item }}.yml"

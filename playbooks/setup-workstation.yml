@@ -3,4 +3,5 @@
   hosts: all
   become: true
   roles:
-    - role: system_update
+    - role: setup_base
+    - role: setup_python

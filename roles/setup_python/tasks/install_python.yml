@@ -9,7 +9,7 @@
     name: software-properties-common
     state: present
 
-- name: Installs latest python version
+- name: Installs python
   package:
     name: "{{ python_version }}"
     state: present

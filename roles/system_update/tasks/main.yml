@@ -1,9 +1,0 @@
----
-# tasks file for roles/system-update
-- name: Importing other tasks
-  include_tasks: "{{ system_update_task_file }}.yml"
-  loop:
-    - base-upgrade
-    - python
-  loop_control:
-    loop_var: system_update_task_file

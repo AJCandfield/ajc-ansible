@@ -1,0 +1,10 @@
+---
+# vars file for roles/system-update
+packages:
+  - git
+  - curl
+  - wget
+  - zip
+  - unzip
+  - gzip
+  - zsh
