@@ -36,6 +36,7 @@ use_default_rules: true
 
 # This makes linter to fully ignore rules/tags listed below
 skip_list:
+  - no-loop-var-prefix
   - skip_this_tag
   - git-latest
 

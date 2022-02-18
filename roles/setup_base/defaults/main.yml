@@ -1,2 +1,12 @@
 ---
 # defaults file for roles/system-update
+user: alex
+
+packages:
+  - git
+  - curl
+  - wget
+  - zip
+  - unzip
+  - gzip
+  - zsh

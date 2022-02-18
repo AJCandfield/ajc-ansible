@@ -1,0 +1,17 @@
+---
+- name: Install zsh
+  apt:
+    package: zsh
+
+- name: Execute shell installation script
+  environment:
+    USER: "{{ user }}"
+  shell:
+    chdir: /tmp
+    cmd: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    creates: install.sh
+
+- name: Set user's shell to zsh
+  user:
+    name: "{{ user }}"
+    shell: "/usr/bin/zsh"
