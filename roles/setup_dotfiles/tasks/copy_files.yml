@@ -1,0 +1,11 @@
+---
+- name: Copies files to home directory
+  git:
+    repo: git@github.com:AJCandfield/dotfiles.git
+    dest: "~{{ user }}"
+    single_branch: true
+    version: master
+
+- name: Listing files in home directory
+  shell: "ls -la ~{{ user | quote }}" # noqa 305
+  changed_when: false

@@ -1,0 +1,6 @@
+---
+# tasks file for roles/setup_dotfiles
+- name: Importing other tasks...
+  loop:
+    - copy_dotfiles
+  include_tasks: "{{ item }}.yml"
