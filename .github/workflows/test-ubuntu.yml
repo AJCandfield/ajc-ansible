@@ -7,4 +7,5 @@ jobs:
     steps:
       - run: sudo apt install ansible
       - uses: actions/checkout@v2
-      - run: ansible-playbook playbooks/ping.yml
+      - run: ansible-playbook playbooks/ping.yml -vv
+      - run: ansible-playbook playbooks/setup-workstation -vv
