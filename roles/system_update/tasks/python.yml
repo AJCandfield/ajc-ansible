@@ -11,11 +11,11 @@
 
 - name: Installs latest python version
   package:
-    name: { { python_version } }
+    name: "{{ python_version }}"
     state: present
 
 - name: Running some check commands...
-  shell: ls /usr/bin/{{ python_version }}
+  shell: ls /usr/bin/{{ python_version }} # noqa 305
   register: python_check
   changed_when: false
 
