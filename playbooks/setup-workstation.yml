@@ -5,9 +5,13 @@
   tasks:
 
     - name: Updates and upgrades system
-      package: 
+      apt: # noqa 403
         name: "*"
-        state: latest
+        update_cache: yes
+        install_recommends: yes
+        upgrade: yes
+        autoremove: yes
+        autoclean: yes
 
     - name: Add repository for python
       apt_repository:
@@ -17,9 +21,22 @@
     - name: Installs dependencies for python
       package:
         name: software-properties-common
-        state: latest
+        state: present
 
     - name: Installs latest python version
       package:
         name: python3.10
-        state: latest
+        state: present
+
+    - name: Running some check commands...
+      shell: |
+        which python
+        which python3
+        python -V
+        python3 -V
+      register: python_check
+      changed_when: false
+
+    - name: Printing Python version...
+      debug:
+        var: python_check
