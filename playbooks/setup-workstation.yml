@@ -4,4 +4,11 @@
   become: true
   roles:
     - role: setup_base
+      vars:
+        user: alex
+
     - role: setup_python
+
+    - role: setup_zsh
+      vars:
+        user: alex
