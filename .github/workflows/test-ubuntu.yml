@@ -11,7 +11,7 @@ jobs:
         run: python3 -m venv venv
 
       - name: Activating venv
-        run: source venv/bin/activate
+        run: source venv/bin/activate ; which python
 
       - name: Installing pre-commit...
         run: pip install pre-commit
@@ -30,8 +30,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Installing venv...
+        run: python3 -m venv venv
+
+      - name: Activating venv
+        run: source venv/bin/activate ; which python
+
       - name: Installing Ansible...
-        run: sudo apt install ansible
+        run: pip install ansible
 
       - name: Running Ansible ping...
         run: ansible-playbook playbooks/ping.yml -vv
