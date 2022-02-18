@@ -5,5 +5,5 @@ jobs:
   run-playbook:
     runs-on: ubuntu-20.04
     steps:
-      - run: apt install ansible
+      - run: sudo apt install ansible
       - run: ansible-playbook playbooks/ping.yml
