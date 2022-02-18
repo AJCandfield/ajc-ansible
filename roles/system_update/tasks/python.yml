@@ -21,7 +21,7 @@
 
 - name: Check correct python version
   assert:
-    that: "{{ python_version }} in python_check.stdout"
+    that: "'{{ python_version }}' in python_check.stdout"
     success_msg: "{{ python_version }} successfully installed."
     fail_msg: "{{ python_version }} not found in /usr/bin folder."
 
