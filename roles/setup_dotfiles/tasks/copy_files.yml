@@ -2,9 +2,17 @@
 - name: Copies files to home directory
   git:
     repo: https://github.com/AJCandfield/dotfiles.git
-    dest: "~{{ user }}"
+    dest: "/tmp/dotfile"
     single_branch: true
     version: master
+
+- name: Move files to user's home directory
+  copy:
+    remote_src: yes
+    src: "/tmp/dotfile/*"
+    dest: "~{{ user }}"
+    owner: "{{ user }}"
+    group: "{{ user }}"
 
 - name: Listing files in home directory
   shell: "ls -la ~{{ user | quote }}" # noqa 305
