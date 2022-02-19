@@ -9,8 +9,8 @@
 - name: Move files to user's home directory
   copy:
     remote_src: yes
-    src: "/tmp/dotfile/*"
-    dest: "~{{ user }}"
+    src: "/tmp/dotfile/"
+    dest: "~{{ user }}/"
     owner: "{{ user }}"
     group: "{{ user }}"
 
