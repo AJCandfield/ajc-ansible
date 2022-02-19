@@ -1,0 +1,6 @@
+---
+# tasks file for roles/setup_neovim
+- name: Importing other tasks...
+  loop:
+    - install_neovim
+  include_tasks: "{{ item }}.yml"

@@ -3,10 +3,9 @@
 user: alex
 
 packages:
-  - git
   - curl
   - wget
   - zip
   - unzip
   - gzip
-  - zsh
+  - neovim
