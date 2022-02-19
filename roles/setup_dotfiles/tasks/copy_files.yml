@@ -1,7 +1,7 @@
 ---
 - name: Copies files to home directory
   git:
-    repo: git@github.com:AJCandfield/dotfiles.git
+    repo: https://github.com/AJCandfield/dotfiles.git
     dest: "~{{ user }}"
     single_branch: true
     version: master
