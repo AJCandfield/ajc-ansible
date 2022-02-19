@@ -4,7 +4,7 @@
     repo: https://github.com/AJCandfield/dotfiles.git
     dest: "/tmp/dotfile"
     single_branch: true
-    version: master
+    version: main
 
 - name: Move files to user's home directory
   copy:
