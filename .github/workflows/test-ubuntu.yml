@@ -33,20 +33,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Installing venv...
-        run: python3 -m venv venv
+      # - name: Installing venv...
+      #   run: python3 -m venv venv
 
-      - name: Activating venv
-        run: source venv/bin/activate
+      # - name: Activating venv
+      #   run: source venv/bin/activate
 
       - name: Installing Ansible...
         run: pip install ansible
 
-      - name: Running Ansible ping...
-        run: ansible-playbook playbooks/ping.yml -vv
-
-      - name: Running main Ansible playbook...
-        run: ansible-playbook playbooks/setup-workstation.yml -vv
-
-      - name: Listing packages...
-        run: sudo apt list --installed
+      - name: Running workstation setup script...
+        run: ./install.sh
