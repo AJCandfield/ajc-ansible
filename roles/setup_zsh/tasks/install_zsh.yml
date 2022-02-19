@@ -3,6 +3,11 @@
   apt:
     package: zsh
 
+- name: Check if oh-my-zsh exists
+  stat:
+    path: "{{ user }}"
+  register: omz
+
 - name: Execute shell installation script
   become: true
   become_user: "{{ user }}"
@@ -10,6 +15,7 @@
     chdir: /tmp
     cmd: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     creates: install.sh
+  when: not omz.stat.exists
 
 - name: Set user's shell to zsh
   user:
