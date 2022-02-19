@@ -1,5 +1,5 @@
 ---
-- name: Copies files to home directory
+- name: Copies files to temp directory
   git:
     repo: https://github.com/AJCandfield/dotfiles.git
     dest: "/tmp/dotfile"
