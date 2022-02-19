@@ -39,8 +39,8 @@ jobs:
       # - name: Activating venv
       #   run: source venv/bin/activate
 
-      - name: Installing Ansible...
-        run: pip install ansible
+      # - name: Installing Ansible...
+      #   run: pip install ansible
 
       - name: Running workstation setup script...
         run: ./install.sh
