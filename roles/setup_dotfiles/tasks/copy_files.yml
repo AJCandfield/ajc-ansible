@@ -6,11 +6,22 @@
     single_branch: true
     version: main
 
+- name: Check if user exists
+  getent:
+    database: passwd
+    key: "{{ user }}"
+
+- name: Assert user exists
+  assert:
+    that: user in ansible_facts.getent_passwd
+    success_msg: "User {{ user }} found. Installation can proceed."
+    fail_msg: "User {{ user }} not found. Installation will soon stop."
+
 - name: Move files to user's home directory
   copy:
     remote_src: yes
     src: "/tmp/dotfile/"
-    dest: "~{{ user }}"
+    dest: "/home/{{ user }}"
     owner: "{{ user }}"
     group: "{{ user }}"
 
