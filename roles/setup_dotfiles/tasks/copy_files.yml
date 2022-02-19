@@ -10,7 +10,7 @@
   copy:
     remote_src: yes
     src: "/tmp/dotfile/"
-    dest: "~{{ user }}/"
+    dest: "~{{ user }}"
     owner: "{{ user }}"
     group: "{{ user }}"
 
