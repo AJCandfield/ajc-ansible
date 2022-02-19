@@ -5,7 +5,7 @@ PATH_VENV="/tmp/venv"
 
 # sudo apt-get update
 # sudo apt-get --yes --force-yes install git python3
-sudo python -m venv ${PATH_VENV}
+sudo python3 -m venv ${PATH_VENV}
 
 source "${PATH_VENV}/bin/activate"
 
