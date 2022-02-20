@@ -5,7 +5,7 @@
   pre_tasks:
     - name: Basic usage
       debug:
-        var: lookup('env')
+        var: ansible_facts['ansible_env']
   roles:
     - role: base
       vars:
