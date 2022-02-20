@@ -1,0 +1,19 @@
+---
+- name: Get latest aws-vault release version
+  uri:
+    url: https://api.github.com/repos/99designs/aws-vault/releases/latest
+    body_format: json
+    return_content: true
+  register: aws_vault_version
+
+- name: Deriving file name
+  set_fact:
+    aws_vault_package: "{{ aws_vault_version['json'].tag_name }}"
+
+- name: Download aws-vault
+  get_url:
+    url: "https://github.com/99designs/aws-vault/releases/download/{{ aws_vault_package }}/aws-vault-linux-amd64"
+    dest: "~{{ target_user }}/.local/bin/aws-vault"
+    owner: "{{ target_user }}"
+    group: "{{ target_user }}"
+    mode: "0755"

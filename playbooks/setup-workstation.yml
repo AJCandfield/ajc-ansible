@@ -21,6 +21,8 @@
 
     - role: sops
 
+    - role: aws_cli
+
   post_tasks:
     - name: Installs dotfiles
       import_role:
