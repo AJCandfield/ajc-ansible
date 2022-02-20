@@ -1,0 +1,5 @@
+---
+- name: Importing other tasks...
+  loop:
+    - install_aws_cli
+  include_tasks: "{{ item }}.yml"
