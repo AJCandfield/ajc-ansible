@@ -33,14 +33,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # - name: Installing venv...
-      #   run: python3 -m venv venv
-
-      # - name: Activating venv
-      #   run: source venv/bin/activate
-
-      # - name: Installing Ansible...
-      #   run: pip install ansible
+      - name: Exporting Runner vars
+        run: echo "STAGE=ci" >> $GITHUB_ENV
 
       - name: Running workstation setup script...
         run: ./install.sh
