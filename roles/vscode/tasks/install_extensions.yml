@@ -3,7 +3,7 @@
   become: true
   become_user: "{{ target_user }}"
   shell: "code --install-extension {{ item }}"
-  loop: 
+  loop:
     - redhat.ansible
     - rogalmic.bash-debug
     - mads-hartmann.bash-ide-vscode

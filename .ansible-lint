@@ -40,6 +40,8 @@ skip_list:
   - skip_this_tag
   - git-latest
   - yaml
+  - risky-file-permissions
+  - command-instead-of-shell
 
 # Any rule that has the 'opt-in' tag will not be loaded unless its 'id' is
 # mentioned in the enable_list:

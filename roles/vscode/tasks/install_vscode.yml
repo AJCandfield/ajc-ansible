@@ -15,12 +15,12 @@
     get_url:
       url: https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
       dest: /tmp/vscode.deb
-  
+
   - name: Installs .deb package
     apt:
       deb: /tmp/vscode.deb
-  
+
   - name: Remove the .deb package after installation
-    file: 
+    file:
       path: /tmp/vscode.deb
       state: absent
