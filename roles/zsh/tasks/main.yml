@@ -1,5 +1,4 @@
 ---
-# tasks file for roles/setup_zsh
 - name: Importing other tasks...
   loop:
     - install_zsh

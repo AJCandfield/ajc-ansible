@@ -3,5 +3,4 @@
 - name: Importing other tasks...
   loop:
     - install_base_packages
-    - create_user
   include_tasks: "{{ item }}.yml"

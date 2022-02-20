@@ -1,5 +1,0 @@
----
-- name: Makes sure the main user exists
-  user:
-    name: alex
-    comment: Alexander James Candfield

@@ -1,0 +1,26 @@
+---
+- name: Check if user exists
+  getent:
+    database: passwd
+    key: "{{ user }}"
+
+- name: Makes sure the main user exists
+  user:
+    name: "{{ user }}"
+    comment: Alexander James Candfield
+  when: user not in ansible_facts.getent_passwd
+
+- name: Assert user exists
+  assert:
+    that: user in ansible_facts.getent_passwd
+    success_msg: "User {{ user }} found. Installation can proceed."
+    fail_msg: "User {{ user }} not found. Installation will stop."
+
+- name: Create directories
+  file:
+    path: "~{{ user }}/{{ item }}"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    state: directory
+  loop:
+    - ".local/bin"

@@ -3,20 +3,20 @@
   hosts: all
   become: true
   roles:
-    - role: setup_base
+    - role: base
       vars:
         user: alex
 
-    - role: setup_python
-
-    - role: setup_zsh
+    - role: home_dir
       vars:
         user: alex
 
-    - role: setup_dotfiles
+    - role: python
+
+    - role: zsh
       vars:
         user: alex
 
-    - role: setup_zsh
+    - role: neovim
       vars:
         user: alex

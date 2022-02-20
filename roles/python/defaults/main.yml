@@ -1,5 +1,4 @@
 ---
-# defaults file for roles/setup_python
 python_version: python3.10
 pip_packages:
   - pip

@@ -1,6 +1,5 @@
 ---
-# tasks file for roles/setup_dotfiles
 - name: Importing other tasks...
   loop:
-    - copy_files
+    - install_aws_vault
   include_tasks: "{{ item }}.yml"

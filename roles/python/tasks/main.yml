@@ -1,5 +1,4 @@
 ---
-# tasks file for roles/setup_python
 - name: Importing other tasks...
   loop:
     - install_python
