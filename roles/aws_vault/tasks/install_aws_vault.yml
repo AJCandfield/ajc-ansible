@@ -1,18 +1,14 @@
 ---
-- name: Get latest aws-vault release version
-  uri:
-    url: https://api.github.com/repos/mozilla/sops/releases/latest
-    body_format: json
-    return_content: true
-  register: aws_vault_version
-
-- name: Deriving file name
-  set_fact:
-    aws_vault_package: "sops-{{ aws_vault_version.tag_name }}.linux"
+- name: Getting latest release of aws-vault
+  github_release:
+    user: mozilla
+    repo: sops
+    action: latest_release
+  register: aws_vault_release
 
 - name: Download aws-vault
   get_url:
-    url: "https://github.com/mozilla/sops/releases/latest/download/{{ aws_vault_package }}"
+    url: "https://github.com/mozilla/sops/releases/latest/download/{{ aws_vault_release.latest_release }}"
     dest: "~{{ target_user }}/.local/bin/sops"
     owner: "{{ target_user }}"
     group: "{{ target_user }}"
