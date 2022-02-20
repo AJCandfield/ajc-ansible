@@ -1,5 +1,14 @@
 ---
+extra_packages:
+  - name: hstr
+    repo: ppa:ultradvorka/ppa
+    filename: hstr
+  - name: python3.10
+    repo: ppa:deadsnakes/ppa
+    filename: python3
+
 packages:
+  - software-properties-common
   - curl
   - wget
   - zip

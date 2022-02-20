@@ -1,0 +1,12 @@
+---
+- name: Adds extra repositories
+  apt_repository:
+    repo: "{{ item.repo }}"
+    update_cache: true
+    filename: "{{ item.filename }}"
+  loop: "{{ extra_packages }}"
+
+- name: Installs extra packages
+  apt:
+    package: "{{ item.name }}"
+  loop: "{{ extra_packages }}"

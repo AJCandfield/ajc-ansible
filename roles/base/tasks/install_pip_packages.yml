@@ -4,8 +4,3 @@
     name: "{{ pip_packages }}"
     executable: pip3
     state: latest # noqa 403
-
-- name: List pip packages
-  pip_package_info:
-    clients:
-      - pip3
