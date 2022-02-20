@@ -23,6 +23,8 @@
 
     - role: aws_cli
 
+    - role: aws_vault
+
   post_tasks:
     - name: Installs dotfiles
       import_role:
