@@ -4,6 +4,7 @@ set -euxo pipefail
 # Make sure git and python is installed!!!
 
 PATH_VENV="/tmp/venv"
+USER="alex"
 
 sudo apt-get --yes install python3-pip
 sudo apt-get --yes install python3-venv
@@ -18,7 +19,7 @@ sudo "${PATH_VENV}/bin/pip" install wheel
 sudo "${PATH_VENV}/bin/pip" install ansible
 
 sudo -E "${PATH_VENV}/bin/ansible-playbook" playbooks/ping.yml
-sudo -E "${PATH_VENV}/bin/ansible-playbook" playbooks/setup-workstation.yml -vvv
+sudo -E "${PATH_VENV}/bin/ansible-playbook" playbooks/setup-workstation.yml -e "user=${USER}" -vvv
 
 sudo rm -rf $PATH_VENV
 

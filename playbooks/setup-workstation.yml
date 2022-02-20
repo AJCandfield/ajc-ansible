@@ -2,6 +2,8 @@
 - name: This is the entry playbook which sets up your Ubuntu machine.
   hosts: all
   become: true
+  vars:
+    user: alex
 
   pre_tasks:
     - name: Printing envars with Ansible
@@ -14,19 +16,11 @@
 
   roles:
     - role: base
-      vars:
-        user: alex
 
     - role: home_dir
-      vars:
-        user: alex
 
     - role: python
 
     - role: zsh
-      vars:
-        user: alex
 
     - role: neovim
-      vars:
-        user: alex

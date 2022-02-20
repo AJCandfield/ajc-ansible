@@ -1,7 +1,4 @@
 ---
-# defaults file for roles/system-update
-user: alex
-
 packages:
   - curl
   - wget

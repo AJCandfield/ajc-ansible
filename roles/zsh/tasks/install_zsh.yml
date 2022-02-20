@@ -14,7 +14,6 @@
   shell:
     chdir: /tmp
     cmd: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    creates: install.sh
   when: not omz.stat.exists
 
 - name: Install zsh-plugins
