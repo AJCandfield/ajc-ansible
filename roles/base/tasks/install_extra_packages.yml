@@ -10,3 +10,4 @@
   apt:
     package: "{{ item.name }}"
   loop: "{{ extra_packages }}"
+  when: item.name is defined
