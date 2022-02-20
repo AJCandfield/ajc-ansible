@@ -2,6 +2,10 @@
 - name: This is the entry playbook which sets up your Ubuntu machine.
   hosts: all
   become: true
+  pre_tasks:
+    - name: Basic usage
+      debug:
+        var: lookup('env')
   roles:
     - role: base
       vars:
