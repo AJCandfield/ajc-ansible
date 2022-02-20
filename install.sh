@@ -14,8 +14,8 @@ sudo python3 -m venv ${PATH_VENV}
 
 source "${PATH_VENV}/bin/activate"
 
-sudo "${PATH_VENV}/bin/pip" install ansible
 sudo "${PATH_VENV}/bin/pip" install wheel
+sudo "${PATH_VENV}/bin/pip" install ansible
 
 sudo "${PATH_VENV}/bin/ansible-playbook" playbooks/ping.yml
 sudo "${PATH_VENV}/bin/ansible-playbook" playbooks/setup-workstation.yml -vvv

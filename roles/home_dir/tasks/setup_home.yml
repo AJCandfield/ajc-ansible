@@ -3,6 +3,7 @@
   getent:
     database: passwd
     key: "{{ user }}"
+  failed_when: false
 
 - name: Makes sure the main user exists
   user:
