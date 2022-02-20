@@ -1,6 +1,0 @@
----
-- name: Importing other tasks...
-  loop:
-    - install_python
-    - install_pip_packages
-  include_tasks: "{{ item }}.yml"

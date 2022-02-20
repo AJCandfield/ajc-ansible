@@ -13,8 +13,6 @@
 
     - role: home_dir
 
-    - role: python
-
     - role: zsh
 
     - role: neovim
