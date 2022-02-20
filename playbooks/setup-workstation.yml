@@ -22,5 +22,6 @@
     - role: sops
 
   post_tasks:
-    - import_role:
+    - name: Installs dotfiles
+      import_role:
         name: dotfiles
