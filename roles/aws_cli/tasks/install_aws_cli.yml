@@ -1,5 +1,4 @@
 ---
-
 - name: Check if aws-cli already exists
   shell: "aws --version" # noqa 305
   register: aws_cli
@@ -8,19 +7,19 @@
   failed_when: aws_cli.rc != 0 and aws_cli.rc != 127
 
 - name: Installation of aws-cli
-  when: "'command not found' in aws_cli.stdout"
+  when: "'not found' in aws_cli.stderr"
   block:
-  - name: Download aws-cli
-    get_url:
-      url: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
-      dest: /tmp/awscliv2.zip
+    - name: Download aws-cli
+      get_url:
+        url: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+        dest: /tmp/awscliv2.zip
 
-  - name: Unzip archive
-    unarchive:
-      src: /tmp/awscliv2.zip
-      dest: /tmp
+    - name: Unzip archive
+      unarchive:
+        src: /tmp/awscliv2.zip
+        dest: /tmp
 
-  - name: Run installation script
-    shell: /tmp/.aws/install # noqa 305
-    changed_when: false
-    check_mode: false
+    - name: Run installation script
+      shell: /tmp/.aws/install # noqa 305
+      changed_when: false
+      check_mode: false
