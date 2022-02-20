@@ -10,10 +10,6 @@
       debug:
         var: ansible_facts['env']
 
-    - name: Printing envars with shell
-      shell: env # noqa 305
-      changed_when: false
-
   roles:
     - role: base
 

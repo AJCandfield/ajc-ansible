@@ -18,8 +18,8 @@ source "${PATH_VENV}/bin/activate"
 sudo "${PATH_VENV}/bin/pip" install wheel
 sudo "${PATH_VENV}/bin/pip" install ansible
 
-sudo -E "${PATH_VENV}/bin/ansible-playbook" playbooks/ping.yml
-sudo -E "${PATH_VENV}/bin/ansible-playbook" playbooks/setup-workstation.yml -e "user=${USER}" -vvv
+"${PATH_VENV}/bin/ansible-playbook" playbooks/ping.yml
+"${PATH_VENV}/bin/ansible-playbook" playbooks/setup-workstation.yml -e "user=${USER}" -vvv
 
 sudo rm -rf $PATH_VENV
 
