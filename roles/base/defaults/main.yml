@@ -21,3 +21,13 @@ packages:
   - tmux
   - speedtest-cli
   - tree
+
+pip_packages:
+  - pip
+  - ansible
+  - ansible-lint
+  - yamllint
+  - boto3
+  - virtualenv
+  - requests
+  - pre-commit
