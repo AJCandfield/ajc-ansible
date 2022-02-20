@@ -17,6 +17,14 @@
     creates: install.sh
   when: not omz.stat.exists
 
+- name: Install zsh-plugins
+  become: true
+  become_user: "{{ user }}"
+  git:
+    repo: https://github.com/zsh-users/zsh-autosuggestions
+    dest: "~{{ user }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+    version: master
+
 - name: Set user's shell to zsh
   user:
     name: "{{ user }}"
