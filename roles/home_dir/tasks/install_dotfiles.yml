@@ -10,7 +10,7 @@
   copy:
     remote_src: yes
     src: "/tmp/dotfile/"
-    dest: "~{{ user }}"
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    dest: "~{{ target_user }}"
+    owner: "{{ target_user }}"
+    group: "{{ target_user }}"
   when: not lookup('env', 'CI')

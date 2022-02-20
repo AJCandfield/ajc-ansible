@@ -5,12 +5,12 @@
 
 - name: Check if oh-my-zsh exists
   stat:
-    path: "~{{ user }}/.oh-my-zsh"
+    path: "~{{ target_user }}/.oh-my-zsh"
   register: omz
 
 - name: Execute shell installation script
   become: true
-  become_user: "{{ user }}"
+  become_user: "{{ target_user }}"
   shell:
     chdir: /tmp
     cmd: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -18,13 +18,13 @@
 
 - name: Install zsh-plugins
   become: true
-  become_user: "{{ user }}"
+  become_user: "{{ target_user }}"
   git:
     repo: https://github.com/zsh-users/zsh-autosuggestions
-    dest: "~{{ user }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+    dest: "~{{ target_user }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
     version: master
 
 - name: Set user's shell to zsh
   user:
-    name: "{{ user }}"
+    name: "{{ target_user }}"
     shell: "/usr/bin/zsh"

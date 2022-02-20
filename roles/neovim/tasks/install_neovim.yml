@@ -5,14 +5,14 @@
 
 - name: Create vim-plug folder
   file:
-    path: "~{{ user }}/{{ dir_vim_plug }}"
+    path: "~{{ target_user }}/{{ dir_vim_plug }}"
     state: directory
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    owner: "{{ target_user }}"
+    group: "{{ target_user }}"
 
 - name: Downloads vim-plug file
   get_url:
     url: "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-    dest: "~{{ user }}/{{ dir_vim_plug }}"
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    dest: "~{{ target_user }}/{{ dir_vim_plug }}"
+    owner: "{{ target_user }}"
+    group: "{{ target_user }}"

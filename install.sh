@@ -19,7 +19,7 @@ sudo "${PATH_VENV}/bin/pip" install wheel
 sudo "${PATH_VENV}/bin/pip" install ansible
 
 "${PATH_VENV}/bin/ansible-playbook" playbooks/ping.yml
-"${PATH_VENV}/bin/ansible-playbook" playbooks/setup-workstation.yml -e "user=${USER}" -vvv
+"${PATH_VENV}/bin/ansible-playbook" playbooks/setup-workstation.yml -e "target_user=${USER}" -vvv
 
 sudo rm -rf $PATH_VENV
 

@@ -13,7 +13,7 @@
 - name: Download aws-vault
   get_url:
     url: "https://github.com/mozilla/sops/releases/latest/download/{{ aws_vault_package }}"
-    dest: "~{{ user }}/.local/bin/sops"
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    dest: "~{{ target_user }}/.local/bin/sops"
+    owner: "{{ target_user }}"
+    group: "{{ target_user }}"
     mode: "0755"
