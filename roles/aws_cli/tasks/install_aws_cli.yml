@@ -20,6 +20,6 @@
         dest: /tmp
 
     - name: Run installation script
-      shell: /tmp/.aws/install # noqa 305
+      shell: /tmp/aws/install # noqa 305
       changed_when: false
       check_mode: false
