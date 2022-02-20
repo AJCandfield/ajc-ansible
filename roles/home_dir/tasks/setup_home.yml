@@ -4,7 +4,7 @@
     name: "{{ user }}"
     comment: Alexander James Candfield
 
-- name: Create directories
+- name: Create general directories
   file:
     path: "~{{ user }}/{{ item }}"
     owner: "{{ user }}"
