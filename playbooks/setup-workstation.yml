@@ -18,3 +18,9 @@
     - role: zsh
 
     - role: neovim
+
+    - role: aws_vault
+
+  # post_tasks:
+  #   - import_role:
+  #     name: dotfiles

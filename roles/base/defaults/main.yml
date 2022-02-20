@@ -6,3 +6,7 @@ packages:
   - unzip
   - gzip
   - neovim
+  - neofetch
+  - htop
+  - tmux
+  - speedtest-cli
