@@ -1,0 +1,26 @@
+---
+- name: Check if VSCode is already installed
+  become: true
+  become_user: "{{ target_user }}"
+  shell: code --version
+  register: vscode
+  changed_when: false
+  check_mode: false
+  failed_when: vscode.rc != 0 and vscode.rc != 127
+
+- name: Install VSCode
+  when: "'not found' in vscode.stderr"
+  block:
+  - name: Download .deb package...
+    get_url:
+      url: https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
+      dest: /tmp/vscode.deb
+  
+  - name: Installs .deb package
+    apt:
+      deb: /tmp/vscode.deb
+  
+  - name: Remove the .deb package after installation
+    file: 
+      path: /tmp/vscode.deb
+      state: absent

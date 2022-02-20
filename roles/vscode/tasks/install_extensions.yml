@@ -1,0 +1,24 @@
+---
+- name: Install extensions through terminal
+  become: true
+  become_user: "{{ target_user }}"
+  shell: "code --install-extension {{ item }}"
+  loop: 
+    - redhat.ansible
+    - rogalmic.bash-debug
+    - mads-hartmann.bash-ide-vscode
+    - mhutchie.git-graph
+    - hashicorp.terraform
+    - davidwang.ini-for-vscode
+    - yzhang.markdown-all-in-one
+    - bierner.markdown-emoji
+    - pkief.material-icon-theme
+    - rpinski.shebang-snippets
+    - foxundermoon.shell-format
+    - timonwong.shellcheck
+    - remisa.shellman
+    - 4ops.terraform
+    - visualstudioexptteam.vscodeintellicode
+    - kevinrose.vsc-python-indent
+  register: vscode_extension
+  changed_when: "'was successfully installed.' in vscode_extension.stdout"
