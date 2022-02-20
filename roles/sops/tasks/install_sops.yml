@@ -1,0 +1,19 @@
+---
+- name: Get latest aws-vault release version
+  uri:
+    url: https://api.github.com/repos/mozilla/sops/releases/latest
+    body_format: json
+    return_content: true
+  register: sops_version
+
+- name: Deriving file name
+  set_fact:
+    sops_package: "sops-{{ sops_version['json'].tag_name }}.linux"
+
+- name: Download SOPS
+  get_url:
+    url: "https://github.com/mozilla/sops/releases/latest/download/{{ sops_package }}"
+    dest: "~{{ target_user }}/.local/bin/sops"
+    owner: "{{ target_user }}"
+    group: "{{ target_user }}"
+    mode: "0755"

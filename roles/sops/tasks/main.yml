@@ -1,5 +1,5 @@
 ---
 - name: Importing other tasks...
   loop:
-    - install_aws_vault
+    - install_sops
   include_tasks: "{{ item }}.yml"

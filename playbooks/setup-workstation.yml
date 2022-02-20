@@ -19,7 +19,7 @@
 
     - role: neovim
 
-    - role: aws_vault
+    - role: sops
 
   post_tasks:
     - import_role:

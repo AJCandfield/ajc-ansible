@@ -10,3 +10,4 @@ packages:
   - htop
   - tmux
   - speedtest-cli
+  - tree
