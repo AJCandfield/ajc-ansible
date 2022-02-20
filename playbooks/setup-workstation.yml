@@ -2,10 +2,12 @@
 - name: This is the entry playbook which sets up your Ubuntu machine.
   hosts: all
   become: true
+
   pre_tasks:
     - name: Basic usage
       debug:
-        var: ansible_facts['ansible_env']
+        var: ansible_facts['env']
+
   roles:
     - role: base
       vars:
