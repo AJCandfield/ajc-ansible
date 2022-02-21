@@ -1,12 +1,12 @@
 ---
 - name: Check if Zoom is already installed
-  become: true
-  become_user: "{{ target_user }}"
-  shell: zoom --version
-  register: zoom
+  # become: true
+  # become_user: "{{ target_user }}"
+  shell: which zoom
   changed_when: false
   check_mode: false
-  failed_when: zoom.rc != 0 and zoom.rc != 127
+  register: zoom
+  failed_when: zoom.rc != 0 and "'not found' not in zoom.stderr"
 
 - name: Install Zoom
   when: "'not found' in zoom.stderr"

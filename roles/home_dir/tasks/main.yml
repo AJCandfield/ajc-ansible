@@ -1,5 +1,0 @@
----
-- name: Importing other tasks...
-  loop:
-    - setup_home
-  include_tasks: "{{ item }}.yml"

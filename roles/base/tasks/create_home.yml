@@ -1,14 +1,16 @@
 ---
-- name: Makes sure the main user exists
+- name: Makes sure the target user exists
+  become: true
   user:
     name: "{{ target_user }}"
     comment: Alexander James Candfield
 
-- name: Create general directories
+- name: Creates home directories
   file:
     path: "~{{ target_user }}/{{ item }}"
     owner: "{{ target_user }}"
     group: "{{ target_user }}"
     state: directory
+    mode: 0755
   loop:
     - ".local/bin"

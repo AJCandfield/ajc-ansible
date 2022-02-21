@@ -1,5 +1,6 @@
 ---
 - name: Install zsh
+  become: true
   apt:
     package: zsh
 
@@ -9,22 +10,19 @@
   register: omz
 
 - name: Execute shell installation script
-  become: true
-  become_user: "{{ target_user }}"
   shell:
     chdir: /tmp
     cmd: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   when: not omz.stat.exists
 
 - name: Install zsh-plugins
-  become: true
-  become_user: "{{ target_user }}"
   git:
     repo: https://github.com/zsh-users/zsh-autosuggestions
     dest: "~{{ target_user }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
     version: master
 
 - name: Set user's shell to zsh
+  become: true
   user:
     name: "{{ target_user }}"
     shell: "/usr/bin/zsh"

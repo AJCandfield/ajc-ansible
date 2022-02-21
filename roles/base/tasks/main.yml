@@ -2,6 +2,7 @@
 # tasks file for roles/system-update
 - name: Importing other tasks...
   loop:
+    - create_home
     - install_base_packages
     - install_extra_packages
     - install_pip_packages

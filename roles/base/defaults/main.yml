@@ -22,6 +22,7 @@ packages:
   - speedtest-cli
   - tree
   - flameshot
+  - nmap
 
 pip_packages:
   - pip

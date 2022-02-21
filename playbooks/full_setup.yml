@@ -1,7 +1,6 @@
 ---
 - name: This is the entry playbook which sets up your Ubuntu machine.
   hosts: all
-  become: true
 
   pre_tasks:
     - name: Printing envars with Ansible
@@ -10,12 +9,15 @@
 
     - name: Setting some playbook variables
       set_fact:
-        is_ci: lookup('env', 'CI') | default('false')
+        is_ci: "{{ lookup('env', 'CI') | bool | default('false') }}"
+
+    - name: debug
+      debug:
+        var: is_ci
+        verbosity: 1
 
   roles:
     - role: base
-
-    - role: home_dir
 
     - role: zsh
 
