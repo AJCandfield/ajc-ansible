@@ -13,4 +13,4 @@
     dest: "~{{ target_user }}"
     owner: "{{ target_user }}"
     group: "{{ target_user }}"
-  when: not lookup('env', 'CI')
+  when: not is_ci

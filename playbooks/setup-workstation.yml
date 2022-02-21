@@ -8,6 +8,10 @@
       debug:
         var: ansible_facts['env']
 
+    - name: Setting some playbook variables
+      set_fact:
+        is_ci: lookup('env', 'CI')
+
   roles:
     - role: base
 
