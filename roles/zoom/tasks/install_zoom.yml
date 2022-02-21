@@ -1,0 +1,26 @@
+---
+- name: Check if Zoom is already installed
+  become: true
+  become_user: "{{ target_user }}"
+  shell: zoom --version
+  register: zoom
+  changed_when: false
+  check_mode: false
+  failed_when: zoom.rc != 0 and zoom.rc != 127
+
+- name: Install Zoom
+  when: "'not found' in zoom.stderr"
+  block:
+    - name: Download .deb package...
+      get_url:
+        url: https://zoom.us/client/latest/zoom_amd64.deb
+        dest: /tmp/zoom.deb
+
+    - name: Installs .deb package
+      apt:
+        deb: /tmp/zoom.deb
+
+    - name: Remove the .deb package after installation
+      file:
+        path: /tmp/zoom.deb
+        state: absent

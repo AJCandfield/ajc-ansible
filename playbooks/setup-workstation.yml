@@ -10,7 +10,7 @@
 
     - name: Setting some playbook variables
       set_fact:
-        is_ci: lookup('env', 'CI')
+        is_ci: lookup('env', 'CI') | default('false')
 
   roles:
     - role: base
@@ -28,6 +28,8 @@
     - role: aws_vault
 
     - role: vscode
+
+    - role: zoom
 
   post_tasks:
     - name: Installs dotfiles

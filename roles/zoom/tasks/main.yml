@@ -1,0 +1,5 @@
+---
+- name: Importing other tasks...
+  loop:
+    - install_zoom
+  include_tasks: "{{ item }}.yml"

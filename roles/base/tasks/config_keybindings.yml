@@ -1,21 +1,24 @@
 ---
 # https://askubuntu.com/a/597414
-- name: Check if print button key binding is already set
-  become: true
-  become_user: "{{ target_user }}"
-  shell: gsettings get org.gnome.settings-daemon.plugins.media-keys custom-keybindings
-  changed_when: false
-  check_mode: false
-  register: print_bind
+- name: Keybinding configuration
+  when: not is_ci # Skip this when executing on Github Actions
+  block:
+    - name: Check if print button key binding is already set
+      become: true
+      become_user: "{{ target_user }}"
+      shell: gsettings get org.gnome.settings-daemon.plugins.media-keys custom-keybindings
+      changed_when: false
+      check_mode: false
+      register: print_bind
 
-- name: Setup print button with flameshot
-  become: true
-  become_user: "{{ target_user }}"
-  when: "'flameshot' not in print_bind.stdout"
-  shell: "{{ item }}"
-  loop:
-    - gsettings set org.gnome.settings-daemon.plugins.media-keys screenshot '[]'
-    - gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/flameshot/ name 'Flameshot'
-    - gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/flameshot/ command '/usr/bin/flameshot gui'
-    - gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/flameshot/ binding 'Print'
-    - gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/flameshot/']"
+    - name: Setup print button with flameshot
+      become: true
+      become_user: "{{ target_user }}"
+      when: "'flameshot' not in print_bind.stdout"
+      shell: "{{ item }}"
+      loop:
+        - gsettings set org.gnome.settings-daemon.plugins.media-keys screenshot '[]'
+        - gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/flameshot/ name 'Flameshot'
+        - gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/flameshot/ command '/usr/bin/flameshot gui'
+        - gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/flameshot/ binding 'Print'
+        - gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/flameshot/']"
