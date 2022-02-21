@@ -5,5 +5,5 @@
     - install_base_packages
     - install_extra_packages
     - install_pip_packages
-
+    - config_keybindings
   include_tasks: "{{ item }}.yml"
