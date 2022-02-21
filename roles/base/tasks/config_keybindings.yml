@@ -11,7 +11,7 @@
 - name: Setup print button with flameshot
   become: true
   become_user: "{{ target_user }}"
-  when: "'flameshot' in print_bind.stdout"
+  when: "'flameshot' not in print_bind.stdout"
   shell: "{{ item }}"
   loop:
     - gsettings set org.gnome.settings-daemon.plugins.media-keys screenshot '[]'
