@@ -1,6 +1,0 @@
----
-- name: Importing other tasks...
-  loop:
-    - install_vscode
-    - install_extensions
-  include_tasks: "{{ item }}.yml"

@@ -6,5 +6,12 @@
     - install_base_packages
     - install_extra_packages
     - install_pip_packages
+    - install_aws_cli
+    - install_aws_vault
+    - install_neovim
+    - install_zsh
+    - install_sops
+    - install_zoom
+    - install_vscode
     - config_keybindings
   include_tasks: "{{ item }}.yml"

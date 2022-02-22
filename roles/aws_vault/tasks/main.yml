@@ -1,5 +1,0 @@
----
-- name: Importing other tasks...
-  loop:
-    - install_aws_vault
-  include_tasks: "{{ item }}.yml"

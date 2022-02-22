@@ -19,20 +19,6 @@
   roles:
     - role: base
 
-    - role: zsh
-
-    - role: neovim
-
-    - role: sops
-
-    - role: aws_cli
-
-    - role: aws_vault
-
-    - role: vscode
-
-    - role: zoom
-
   post_tasks:
     - name: Installs dotfiles
       import_role:

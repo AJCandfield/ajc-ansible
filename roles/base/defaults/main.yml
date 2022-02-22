@@ -23,6 +23,10 @@ packages:
   - tree
   - flameshot
   - nmap
+  - fzf
+  - direnv
+  - gnome-shell-extensions-gpaste
+  - gpaste
 
 pip_packages:
   - pip
@@ -33,3 +37,5 @@ pip_packages:
   - virtualenv
   - requests
   - pre-commit
+
+dir_vim_plug: .local/share/nvim/site/autoload

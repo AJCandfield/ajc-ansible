@@ -1,5 +1,0 @@
----
-- name: Importing other tasks...
-  loop:
-    - install_sops
-  include_tasks: "{{ item }}.yml"

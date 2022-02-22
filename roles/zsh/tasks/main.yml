@@ -1,5 +1,0 @@
----
-- name: Importing other tasks...
-  loop:
-    - install_zsh
-  include_tasks: "{{ item }}.yml"
