@@ -1,0 +1,11 @@
+---
+
+- name: Check current sources
+  shell: gsettings get org.gnome.desktop.input-sources sources
+  changed_when: false
+  check_mode: false
+  register: sources
+
+- name: Configure input sources
+  when: "'gb' not in sources.stdout and 'it' not in sources.stdout "
+  shell: gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'gb'), ('xkb', 'it')]"
