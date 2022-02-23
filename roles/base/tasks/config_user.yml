@@ -2,7 +2,8 @@
 - name: Makes sure the target user exists
   user:
     name: "{{ target_user }}"
-    group: sudo
+    groups: sudo
+    append: true
     comment: Alexander James Candfield
 
 - name: Creates home directories
