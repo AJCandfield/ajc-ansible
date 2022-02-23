@@ -1,0 +1,16 @@
+---
+- name: Makes sure the target user exists
+  user:
+    name: "{{ target_user }}"
+    group: sudo
+    comment: Alexander James Candfield
+
+- name: Creates home directories
+  file:
+    path: "~{{ target_user }}/{{ item }}"
+    owner: "{{ target_user }}"
+    group: "{{ target_user }}"
+    state: directory
+    mode: 0755
+  loop:
+    - ".local/bin"

@@ -1,18 +1,28 @@
 ---
-# tasks file for roles/system-update
-- name: Importing other tasks...
-  loop:
-    - create_home
-    - install_base_packages
-    - install_extra_packages
-    - install_pip_packages
-    - install_aws_cli
-    - install_aws_vault
-    - install_neovim
-    - install_zsh
-    - install_sops
-    - install_zoom
-    - install_vscode
-    - config_keybindings
-    - config_locale
-  include_tasks: "{{ item }}.yml"
+- name: Import tasks
+  become: true
+  block:
+    - include_tasks: config_user.yml
+
+# - name: Importing other tasks...
+#   loop:
+#     - config_user
+#     - install_base_packages
+#     - install_extra_packages
+#     - install_pip_packages
+#     - install_aws_cli
+#     - install_aws_vault
+#     - install_neovim
+#     - install_zsh
+#     - install_sops
+#     - install_zoom
+#     - install_vscode
+#     - config_keybindings
+#     - config_locale
+#   include_tasks: "{{ item }}.yml"
+
+- name: Import tasks
+  become: true
+  become_user: "{{ target_user }}"
+  block:
+    - include_tasks: config_locale.yml

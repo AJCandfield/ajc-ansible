@@ -1,7 +1,6 @@
 ---
 - name: Check if aws-cli already exists
   shell: "aws --version" # noqa 305
-  become: true
   register: aws_cli
   changed_when: false
   check_mode: false
@@ -22,7 +21,7 @@
         dest: /tmp
 
     - name: Run installation script
-      shell:
-        cmd: /tmp/aws/install # noqa 305
+      command:
+        cmd: /tmp/aws/install
         creates: /usr/local/bin/aws
       check_mode: false
