@@ -33,8 +33,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Printing envars
-        run: env
-
       - name: Running workstation setup script...
-        run: ./install.sh
+        run: ./full-setup.sh

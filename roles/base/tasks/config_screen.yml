@@ -1,0 +1,5 @@
+---
+- name: Configures night light
+  become: true
+  become_user: "{{ target_user }}"
+  shell: gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true

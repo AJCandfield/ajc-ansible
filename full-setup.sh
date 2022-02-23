@@ -10,7 +10,6 @@ sudo apt-get --yes install python3-pip
 sudo apt-get --yes install python3-venv
 sudo apt-get --yes install python3-wheel
 
-sudo python3 -m pip install wheel
 sudo python3 -m venv ${PATH_VENV}
 
 source "${PATH_VENV}/bin/activate"

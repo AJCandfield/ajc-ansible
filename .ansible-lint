@@ -40,8 +40,6 @@ skip_list:
   - skip_this_tag
   - git-latest
   - yaml
-  - risky-file-permissions
-  - command-instead-of-shell
 
 # Any rule that has the 'opt-in' tag will not be loaded unless its 'id' is
 # mentioned in the enable_list:
@@ -59,6 +57,9 @@ warn_list:
   - skip_this_tag
   - git-latest
   - experimental # experimental is included in the implicit list
+  - risky-file-permissions
+  - command-instead-of-shell
+  - no-changed-when
   # - role-name
 
 # Offline mode disables installation of requirements.yml
