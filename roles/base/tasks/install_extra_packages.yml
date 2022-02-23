@@ -1,6 +1,5 @@
 ---
 - name: Adds extra repositories
-  become: true
   apt_repository:
     repo: "{{ item.repo }}"
     update_cache: true
@@ -8,7 +7,6 @@
   loop: "{{ extra_packages }}"
 
 - name: Installs extra packages
-  become: true
   apt:
     package: "{{ item.name }}"
   loop: "{{ extra_packages }}"

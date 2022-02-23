@@ -1,9 +1,4 @@
 ---
-- name: Install zsh
-  become: true
-  apt:
-    package: zsh
-
 - name: Check if oh-my-zsh exists
   stat:
     path: "~{{ target_user }}/.oh-my-zsh"
@@ -20,9 +15,3 @@
     repo: https://github.com/zsh-users/zsh-autosuggestions
     dest: "~{{ target_user }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
     version: master
-
-- name: Set user's shell to zsh
-  become: true
-  user:
-    name: "{{ target_user }}"
-    shell: "/usr/bin/zsh"

@@ -1,6 +1,5 @@
 ---
 - name: Updates cache and upgrades system
-  become: true
   apt:
     update_cache: true
     install_recommends: true
@@ -9,6 +8,5 @@
     autoclean: true
 
 - name: Installs basic packages
-  become: true
   apt:
     package: "{{ packages }}"

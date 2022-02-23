@@ -7,7 +7,6 @@
   failed_when: aws_cli.rc != 0 and aws_cli.rc != 127
 
 - name: Installation of aws-cli
-  become: true
   when: "'not found' in aws_cli.stderr"
   block:
     - name: Download aws-cli

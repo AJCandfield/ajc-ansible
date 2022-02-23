@@ -1,6 +1,6 @@
 ---
 - name: Check if Zoom is already installed
-  shell: which zoom
+  command: which zoom
   changed_when: false
   check_mode: false
   register: zoom

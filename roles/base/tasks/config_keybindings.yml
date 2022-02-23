@@ -1,8 +1,6 @@
 ---
 # https://askubuntu.com/a/597414
 - name: Keybinding configuration
-  become: true
-  become_user: "{{ target_user }}"
   when: not is_ci # Skip this when executing on Github Actions
   block:
     - name: Check if print button key binding is already set

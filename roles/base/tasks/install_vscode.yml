@@ -1,8 +1,6 @@
 ---
 - name: Check if vscode is already installed
-  # become: true
-  # become_user: "{{ target_user }}"
-  shell: code --version
+  command: code --version
   changed_when: false
   check_mode: false
   register: vscode
@@ -27,9 +25,7 @@
       state: absent
 
 - name: Install extensions through terminal
-  become: true
-  become_user: "{{ target_user }}"
-  shell: "code --install-extension {{ item }}"
+  command: "code --install-extension {{ item }}"
   loop:
     - redhat.ansible
     - rogalmic.bash-debug

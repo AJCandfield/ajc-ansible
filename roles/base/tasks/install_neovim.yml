@@ -1,12 +1,5 @@
 ---
-- name: Install neovim package
-  become: true
-  apt:
-    package: neovim
-
 - name: Create vim-plug folder
-  become: true
-  become_user: "{{ target_user }}"
   file:
     path: "~{{ target_user }}/{{ dir_vim_plug }}"
     state: directory
@@ -15,8 +8,6 @@
     mode: "0644"
 
 - name: Downloads vim-plug file
-  become: true
-  become_user: "{{ target_user }}"
   get_url:
     url: "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
     dest: "~{{ target_user }}/{{ dir_vim_plug }}"
