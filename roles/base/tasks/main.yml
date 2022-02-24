@@ -52,8 +52,15 @@
   become_user: "{{ target_user }}"
   block:
     - include_tasks: config_keybindings.yml
+  when: not is_ci # Skip this when executing on Github Actions
 
 - become: true
   become_user: "{{ target_user }}"
   block:
     - include_tasks: config_locale.yml
+
+- become: true
+  become_user: "{{ target_user }}"
+  block:
+    - include_tasks: config_screen.yml
+  when: not is_ci # Skip this when executing on Github Actions

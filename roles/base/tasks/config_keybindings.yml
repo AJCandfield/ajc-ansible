@@ -1,7 +1,6 @@
 ---
 # https://askubuntu.com/a/597414
 - name: Keybinding configuration
-  when: not is_ci # Skip this when executing on Github Actions
   block:
     - name: Check if print button key binding is already set
       command: gsettings get org.gnome.settings-daemon.plugins.media-keys custom-keybindings
