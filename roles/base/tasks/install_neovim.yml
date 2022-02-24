@@ -5,7 +5,7 @@
     state: directory
     owner: "{{ target_user }}"
     group: "{{ target_user }}"
-    mode: "0644"
+    mode: "0755"
 
 - name: Downloads vim-plug file
   get_url:
