@@ -4,7 +4,7 @@
   changed_when: false
   check_mode: false
   register: zoom
-  failed_when: zoom.rc != 0 and "'not found' not in zoom.stderr"
+  failed_when: zoom.rc != 0 and 'not found' not in zoom.stderr
 
 - name: Install Zoom
   when: "'not found' in zoom.stderr"

@@ -1,7 +1,8 @@
 ---
 - name: Configures night light
-  command: |
-    gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
-    gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-from 19
-    gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-to 8
-    gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature uint32 2700
+  command: "{{ item }}"
+  loop:
+    - gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
+    - gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-from 19
+    - gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-to 8
+    - gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature 2700
