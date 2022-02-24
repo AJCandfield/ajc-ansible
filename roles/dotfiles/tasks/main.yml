@@ -1,5 +1,6 @@
 ---
-- name: Importing other tasks...
-  loop:
-    - install_dotfiles
-  include_tasks: "{{ item }}.yml"
+- become: true
+  become_user: "{{ target_user }}"
+  block:
+    - include_tasks: install_dotfiles.yml
+  when: not is_ci # Skip this when executing on Github Actions

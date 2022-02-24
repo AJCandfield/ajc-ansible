@@ -42,11 +42,13 @@
 - become: true
   block:
     - include_tasks: install_zoom.yml
+  when: not is_ci # Skip this when executing on Github Actions
 
 - become: true
   become_user: "{{ target_user }}"
   block:
     - include_tasks: install_vscode.yml
+  when: not is_ci # Skip this when executing on Github Actions
 
 - become: true
   become_user: "{{ target_user }}"
