@@ -27,6 +27,7 @@ packages:
   - direnv
   - gnome-shell-extensions-gpaste
   - gpaste
+  - zsh
 
 pip_packages:
   - pip
