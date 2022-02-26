@@ -1,4 +1,10 @@
 ---
+remove_packages:
+  - name: snapd
+    autoremove: true
+    autoclean: true
+    purge: true
+
 extra_packages:
   - name: hstr
     repo: ppa:ultradvorka/ppa

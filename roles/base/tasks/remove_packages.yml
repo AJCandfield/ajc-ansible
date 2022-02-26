@@ -1,0 +1,7 @@
+---
+- name: Removes packages
+  vars:
+    _defaults:
+      state: absent
+  apt: "{{ item | combine(_defaults) }}"
+  loop: "{{ remove_packages }}"

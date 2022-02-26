@@ -1,0 +1,13 @@
+---
+- name: Just a test playbook
+  hosts: all
+  connection: local
+  vars:
+    one:
+      - msg: hello
+      - msg: hello world
+
+  tasks:
+    - name: Test looping arguments
+      debug: "{{ item | combine({'verbosity': '3'}) }}"
+      loop: "{{ one }}"

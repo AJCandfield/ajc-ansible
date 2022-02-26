@@ -1,0 +1,20 @@
+---
+- name: Get latest BitWarden release version
+  uri:
+    url: https://api.github.com/repos/bitwarden/cli/releases/latest
+    body_format: json
+    return_content: true
+  register: bw_version
+
+- name: Deriving file name
+  set_fact:
+    bw_package: "bw-linux-{{ bw_version['json'].tag_name[1:] }}.zip"
+
+- name: Download BitWarden
+  unarchive:
+    remote_src: true
+    src: "https://github.com/bitwarden/cli/releases/latest/download/{{ bw_package }}"
+    dest: "~{{ target_user }}/.local/bin/"
+    owner: "{{ target_user }}"
+    group: "{{ target_user }}"
+    mode: "0755"
