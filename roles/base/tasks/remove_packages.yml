@@ -3,5 +3,8 @@
   vars:
     _defaults:
       state: absent
+      autoremove: true
+      autoclean: true
+      purge: true
   apt: "{{ item | combine(_defaults) }}"
   loop: "{{ remove_packages }}"

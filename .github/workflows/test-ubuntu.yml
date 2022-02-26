@@ -31,7 +31,8 @@ jobs:
   run-playbook:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
       - name: Running workstation setup script...
         run: ./full-setup.sh
