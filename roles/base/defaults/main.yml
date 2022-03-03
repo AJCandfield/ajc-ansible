@@ -56,6 +56,10 @@ packages:
   - ca-certificates
   - gnupg
   - lsb-release
+  - inxi
+  - fonts-powerline
+  - zsh-syntax-highlighting
+  - xfce4-terminal
 
 pip_packages:
   - pip

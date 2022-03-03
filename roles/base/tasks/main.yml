@@ -26,7 +26,6 @@
 - become: true
   block:
     - include_tasks: install_aws_cli.yml
-
 - become: true
   become_user: "{{ target_user }}"
   block:
@@ -61,6 +60,15 @@
 - become: true
   become_user: "{{ target_user }}"
   block:
+    - include_tasks: install_bitwarden.yml
+
+- become: true
+  block:
+    - include_tasks: config_defaults.yml
+
+- become: true
+  become_user: "{{ target_user }}"
+  block:
     - include_tasks: config_keybindings.yml
   when: not is_ci # Skip this when executing on Github Actions
 
@@ -74,8 +82,3 @@
   block:
     - include_tasks: config_screen.yml
   when: not is_ci # Skip this when executing on Github Actions
-
-- become: true
-  become_user: "{{ target_user }}"
-  block:
-    - include_tasks: install_bitwarden.yml

@@ -1,7 +1,7 @@
 ---
 - name: Downloads dotfiles to temp directory
   git:
-    repo: https://github.com/AJCandfield/dotfiles.git
+    repo: git@github.com:AJCandfield/dotfiles.git
     dest: "/tmp/dotfile"
     single_branch: true
     version: main

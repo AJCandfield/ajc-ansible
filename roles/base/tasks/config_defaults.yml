@@ -1,0 +1,3 @@
+---
+- name: Configure terminal app
+  command: update-alternatives --set x-terminal-emulator /usr/bin/xfce4-terminal.wrapper
