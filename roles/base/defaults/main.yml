@@ -3,8 +3,8 @@ remove_packages:
   - name: snapd
   - name: gnome-user-docs
   - name: gnome-getting-started-docs
-  - name: orca
   - name: gnome-accessibility-themes
+  - name: orca
 
 extra_packages:
   - name: hstr
@@ -14,6 +14,23 @@ extra_packages:
   - name: python3.10
     repo: ppa:deadsnakes/ppa
     filename: python3
+
+  - name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+    repo: "deb [signed-by=/etc/apt/trusted.gpg.d/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
+    filename: docker
+
+  - name:
+      - terraform
+      - packer
+    repo: deb https://apt.releases.hashicorp.com {{ ansible_distribution_release }} main
+    filename: hashicorp
+
+  - name: kubectl
+    repo: deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main
+    filename: kubernetes
 
 packages:
   - software-properties-common
@@ -36,6 +53,9 @@ packages:
   - gnome-shell-extensions-gpaste
   - gpaste
   - zsh
+  - ca-certificates
+  - gnupg
+  - lsb-release
 
 pip_packages:
   - pip

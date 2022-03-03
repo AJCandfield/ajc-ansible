@@ -9,6 +9,10 @@
 
 - become: true
   block:
+    - include_tasks: add_gpg.yml
+
+- become: true
+  block:
     - include_tasks: install_base_packages.yml
 
 - become: true
