@@ -1,14 +1,16 @@
 ---
 - name: Add GPG key for Docker
-  apt_key:
-    url: https://download.docker.com/linux/ubuntu/gpg
-    keyring: /etc/apt/trusted.gpg.d/docker-archive-keyring.gpg
+  vars:
+    keys:
+      - url: https://download.docker.com/linux/ubuntu/gpg
+        keyring: /etc/apt/trusted.gpg.d/docker-archive-keyring.gpg
 
-- name: Add GPG key for Hashicorp
-  apt_key:
-    url: https://apt.releases.hashicorp.com/gpg
+      - url: https://apt.releases.hashicorp.com/gpg
 
-- name: Add GPG key for Google
+      - url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+        keyring: /usr/share/keyrings/kubernetes-archive-keyring.gpg
+
   apt_key:
-    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
-    keyring: /usr/share/keyrings/kubernetes-archive-keyring.gpg
+    url: "{{ item.url }}"
+    keyring: "{{ item.keyring | default(omit) }}"
+  loop: "{{ keys }}"
