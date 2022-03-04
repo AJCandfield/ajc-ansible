@@ -60,6 +60,7 @@ packages:
   - fonts-powerline
   - zsh-syntax-highlighting
   - xfce4-terminal
+  - hydra
 
 pip_packages:
   - pip
