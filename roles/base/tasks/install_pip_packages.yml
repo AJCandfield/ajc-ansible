@@ -1,6 +1,0 @@
----
-- name: Installs pip packages
-  pip:
-    name: "{{ pip_packages }}"
-    executable: pip3
-    state: latest # noqa 403

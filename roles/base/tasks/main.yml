@@ -21,10 +21,6 @@
 
 - become: true
   block:
-    - include_tasks: install_pip_packages.yml
-
-- become: true
-  block:
     - include_tasks: install_aws_cli.yml
 - become: true
   become_user: "{{ target_user }}"

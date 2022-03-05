@@ -41,8 +41,10 @@
     - timonwong.shellcheck
     - remisa.shellman
     - 4ops.terraform
+    - 4ops.packer
     - visualstudioexptteam.vscodeintellicode
     - kevinrose.vsc-python-indent
+
   register: vscode_extension
   changed_when: "'was successfully installed.' in vscode_extension.stdout"
   when: not is_ci # Skip this when executing on Github Actions

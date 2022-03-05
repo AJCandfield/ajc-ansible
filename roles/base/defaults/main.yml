@@ -34,6 +34,9 @@ extra_packages:
 
 packages:
   - software-properties-common
+  - nodejs
+  - npm
+  - locate
   - curl
   - synaptic
   - wget
@@ -43,6 +46,7 @@ packages:
   - neovim
   - neofetch
   - htop
+  - vtop
   - tmux
   - speedtest-cli
   - tree
@@ -61,6 +65,9 @@ packages:
   - zsh-syntax-highlighting
   - xfce4-terminal
   - hydra
+
+node_packages:
+  - vtop
 
 pip_packages:
   - pip

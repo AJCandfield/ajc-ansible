@@ -11,3 +11,13 @@
     package: "{{ item.name }}"
   loop: "{{ extra_packages }}"
   when: item.name is defined
+
+- name: Installs pip packages
+  pip:
+    name: "{{ pip_packages }}"
+    executable: pip3
+
+- name: Install NPM packages
+  npm:
+    name: "{{ item }}"
+  loop: "{{ npm_packages }}"
