@@ -20,4 +20,5 @@
 - name: Install NPM packages
   npm:
     name: "{{ item }}"
+    global: true
   loop: "{{ npm_packages }}"
