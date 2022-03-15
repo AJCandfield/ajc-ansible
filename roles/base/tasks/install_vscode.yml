@@ -44,6 +44,7 @@
     - 4ops.packer
     - visualstudioexptteam.vscodeintellicode
     - kevinrose.vsc-python-indent
+    - ms-azuretools.vscode-docker
 
   register: vscode_extension
   changed_when: "'was successfully installed.' in vscode_extension.stdout"

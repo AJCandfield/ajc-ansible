@@ -1,0 +1,39 @@
+---
+- name: Get latest buildkit release version
+  uri:
+    url: https://api.github.com/repos/moby/buildkit/releases/latest
+    body_format: json
+    return_content: true
+  register: buildkit_version
+
+- name: Deriving file name
+  set_fact:
+    buildkit_package: "buildkit-{{ buildkit_version['json'].tag_name }}.linux-amd64.tar.gz"
+
+- name: Create temp dir
+  file:
+    path: "/tmp/buildkit"
+    state: directory
+    mode: "0755"
+
+- name: Download buildkit
+  unarchive:
+    remote_src: true
+    src: "https://github.com/moby/buildkit/releases/latest/download/{{ buildkit_package }}"
+    dest: "/tmp/buildkit"
+    owner: "{{ target_user }}"
+    group: "{{ target_user }}"
+    mode: "0755"
+
+- name: Copy in bin folder
+  copy:
+    src: "/tmp/buildkit/bin/"
+    dest: "~{{ target_user }}/.local/bin/"
+    owner: "{{ target_user }}"
+    group: "{{ target_user }}"
+    mode: "0755"
+
+- name: Create temp dir
+  file:
+    path: "/tmp/buildkit"
+    state: absent
