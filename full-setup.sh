@@ -26,7 +26,7 @@ source "${PATH_VENV}/bin/activate"
 sudo "${PATH_VENV}/bin/pip" install wheel
 sudo "${PATH_VENV}/bin/pip" install ansible
 
-"${PATH_VENV}/bin/ansible-playbook" playbooks/full_setup.yml -e "target_user=${TARGET_USER}" -vvv
+"${PATH_VENV}/bin/ansible-playbook" playbooks/full_setup.yml "$@"
 
 sudo rm -rf ${PATH_VENV}
 log debug "Venv removed."
